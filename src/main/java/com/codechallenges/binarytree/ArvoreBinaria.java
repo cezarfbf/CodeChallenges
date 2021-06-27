@@ -81,6 +81,7 @@ class Thee<T extends Comparable> {
     }
 
     public Node<T> insert(Node<T> root, T data) {
+
         if(root == null) {
             return new Node(data);
         } else {
