@@ -3,6 +3,7 @@ package com.codechallenges.general;
 import java.util.*;
 import java.io.*;
 import java.math.*;
+import java.util.stream.Collectors;
 
 /**
  * Auto-generated code below aims at helping you parse
@@ -47,6 +48,71 @@ class CloseToZero {
         }
         return  temps.get(closestIndex).toString();
     }
+
+    public static int computeClosestToZero(int[] ts) {
+        // Write your code here
+        // To debug: System.err.println("Debug messages...");
+
+        if (ts.length == 0)
+            return 0;
+
+        int closestIndex = 0;
+        int diff = Integer.MAX_VALUE;
+
+        for (int i = 0; i < ts.length; i++) {
+            int abs = Math.abs(ts[i]);
+            if (abs < diff) {
+                closestIndex = i;
+                diff = abs;
+            } else if (abs == diff && ts[i] > 0 && ts[closestIndex] < 0) {
+                //same distance to zero but positive
+                closestIndex = i;
+            }
+        }
+
+        return ts[closestIndex];
+    }
+
+    public static int solve(int weight0, int weight1, int weight2) {
+        // Write your code here
+        // To debug: System.err.println("Debug messages...");
+
+        int[] arr = {weight0, weight1, weight2};
+
+        int haviestIndex = 0;
+        int max = 0;
+
+        for (int i=0; i < arr.length; i++){
+
+            if (arr[i] > max){
+                max = arr[i];
+                haviestIndex = i;
+            }
+
+        }
+
+        return arr[haviestIndex];
+    }
+
+//    public static int[] filterDuplicates(int[] data) {
+//        // Write your code here
+//        // To debug: System.err.println("Debug messages...");
+//        List<Integer> res = new ArrayList();
+//
+//        List<Integer> listWithoutDuplicates = new ArrayList<>(
+//                new LinkedHashSet<Integer>(data));
+//
+//        for (int i=0; i < data.length; i++){
+//
+//            for (int i=0; i < data.length; i++){}
+//
+//        }
+//
+//            String a = "";
+//            a = "asdf";
+//
+//        return res;
+//    }
 
 
 }

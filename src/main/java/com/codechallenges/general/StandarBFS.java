@@ -31,7 +31,7 @@ class StandarBFS {
         public void addEdge(int first, int second) {
             adjLst.get(first).add(second);
             adjLst.get(second).add(first);
-// For undirected graph, you gotta add edges from both sides.
+        // For undirected graph, you gotta add edges from both sides.
         }
 
         public int[] shortestReach(int startId) { // 0 indexed

@@ -118,6 +118,28 @@ public class MyLinkedList {
         }
     }
 
+    private Node deleteMiddleNode(Node head){
+        if (head == null && head.next == null)
+            return head;
+
+        Node slow = head;
+        Node fast = head;
+
+        Node previous = null;
+
+        while (fast != null && fast.next != null){
+
+            fast = fast.next.next;
+            previous = slow;
+            slow = slow.next;
+        }
+
+        previous.next = slow.next;
+        nodeCounter--;
+
+        return head;
+    }
+
     public static void main(String args[]) {
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.insertNodeAtEnd(10);
@@ -132,6 +154,8 @@ public class MyLinkedList {
         linkedList.insertAtMid(40, 45);
         linkedList.deleteParticularNode(45);
 
+        linkedList.displayNode();
+        System.out.print("delete middle:"+linkedList.deleteMiddleNode(linkedList.startNode));
         linkedList.displayNode();
         System.out.print("Total number of node:" + linkedList.nodeCounter);
     }
