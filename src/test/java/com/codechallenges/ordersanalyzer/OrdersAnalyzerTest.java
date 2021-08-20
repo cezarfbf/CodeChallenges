@@ -13,7 +13,7 @@ public class OrdersAnalyzerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		orders = OrdersTestHelper.readOrders("ordersanalyzer/orders.json");
+		orders = OrdersTestHelper.readOrders("/ordersanalyzer/orders.json");
 	}
 
 	@Test

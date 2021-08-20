@@ -47,8 +47,6 @@ public class OrdersTestHelper {
     static Type listType = new TypeToken<ArrayList<OrdersAnalyzer.Order>>() {}.getType();
 
     static List<OrdersAnalyzer.Order> readOrders(String fileName) throws URISyntaxException, FileNotFoundException {
-
-        URL url = OrdersAnalyzerTest.class.getResource(fileName);
         return gson.fromJson(new FileReader(Paths.get(OrdersAnalyzerTest.class.getResource(fileName).toURI()).toFile()), listType);
     }
 
